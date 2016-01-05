@@ -77,6 +77,29 @@ ol, ul {
     float: left;
 }
 
+
+.todo-list .todo-destroy {
+    position: absolute;
+    right: 5px;
+    top: 14px;
+    display: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(../img/destroy.png) no-repeat 0 0;
+}
+.todo-list .done-true .todo-content {
+    text-decoration: line-through;
+    color: #777777;
+}
+
+.todo-list li:hover .todo-destroy {
+    display: block;
+}
+.todo-list .todo-destroy:hover {
+    background-position: 0 -20px;
+}
+
 .todo-stats {
     margin-top: 10px;
     color: #777777;
@@ -94,6 +117,13 @@ ol, ul {
 .todo-stats .todo-clear {
     float: right;
 }
+.todo-stats .todo-clear a:hover {
+    color: #336699;
+}
+
+.todo-stats .todo-clear a:visited {
+    color: #777777;
+}
 
 .todo-stats:after {
     content: "\0020";
@@ -103,3 +133,6 @@ ol, ul {
     overflow: hidden;
     visibility: hidden;
 }
+
+
+
