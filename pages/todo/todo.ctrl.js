@@ -1,7 +1,7 @@
 angular.module('myApp').controller('TodoCtrl', function ($scope, localStorageSvr) {
     var TODO_LIST = "TODO_LIST";
 
-    $scope.list = getToDoList();
+    $scope.list = getTodoListFromLocalStorage();
     $scope.newTodo = "";
 
     //$scope.name = 'lizeyang';
