@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="TodoCtrl">
+    hello,{{name}}<br>
+    hello,<span ng-bind="name"></span><br>
+    <input ng-model="name">
+</div>
+
+
+<script src="lib/angular/angular.js"></script>
+<script src="pages/app.js"></script>
+<script src="pages/todo/todo.ctrl.js"></script>
+</body>
+</html>
