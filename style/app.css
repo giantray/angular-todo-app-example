@@ -6,6 +6,10 @@ body {
     color: #333333;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
 .todoapp {
     width: 480px;
     margin: 0 auto 40px;
@@ -41,6 +45,7 @@ body {
 
 .todo-input-tip{
     color: gray;
+    margin-top: 7px;
 }
 
 
