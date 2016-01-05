@@ -3,13 +3,50 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="style/app.css"/>
 </head>
 <body>
 
-<div ng-app="myApp" ng-controller="TodoCtrl">
-    hello,{{name}}<br>
-    hello,<span ng-bind="name"></span><br>
-    <input ng-model="name">
+<div ng-app="myApp">
+
+    <div class="todoapp" ng-controller="TodoCtrl">
+        <div class="title">
+            <h1>Todos</h1>
+        </div>
+        <div class="content">
+            <form class="todo-form" >
+                <input placeholder="What to do next" type="text">
+                <span class="todo-input-tip">
+                    Press Enter to save this task
+                </span>
+            </form>
+            <div class="todos">
+                <ul class="todo-list">
+                    <li class="todo" >
+                        <div class="display">
+                            <input class="check" type="checkbox" name="todo.done">
+                            <div><span >212</span> </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="todo-stats">
+              <span class="todo-count" >
+                <span class="number"><span>1</span></span>
+                <span class="word">items</span> left.
+              </span>
+              <span class="todo-clear" >
+                  <a >
+                      Clear <span class="number-done"><span>0</span></span>
+                      completed <span class="word-done">item</span>
+                  </a>
+              </span>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 
