@@ -77,6 +77,14 @@ ol, ul {
     float: left;
 }
 
+.todo-list li:hover .todo-createTime {
+    display: inline-block;
+    color: gray;
+    margin-left: 5px;
+}
+.todo-list .todo-createTime {
+    display: none;
+}
 
 .todo-list .todo-destroy {
     position: absolute;
