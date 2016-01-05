@@ -1,4 +1,5 @@
-angular.module('myApp').controller('TodoCtrl', function ($scope) {
+angular.module('myApp').controller('TodoCtrl', function ($scope, localStorageSvr) {
+    var TODO_LIST = "TODO_LIST";
 
     $scope.list = getToDoList();
     $scope.newTodo = "";
@@ -7,6 +8,7 @@ angular.module('myApp').controller('TodoCtrl', function ($scope) {
 
     $scope.addTodo = function () {
         $scope.list.push({createTime: new Date().getTime(), text: $scope.newTodo});
+        setToDoListToLocalStorage();
     }
 
     $scope.isShowInputTip = function () {
@@ -16,6 +18,7 @@ angular.module('myApp').controller('TodoCtrl', function ($scope) {
     $scope.removeTodo = function (selectItem) {
         var index = $scope.list.indexOf(selectItem);
         $scope.list.splice(index, 1);
+        setToDoListToLocalStorage();
     }
 
     $scope.hasCompletedItems = function () {
@@ -25,26 +28,40 @@ angular.module('myApp').controller('TodoCtrl', function ($scope) {
     $scope.cleanCompletedItems = function () {
         var listAfterClean = [];
         angular.forEach($scope.list, function (item) {
-            if(!item.done){
+            if (!item.done) {
                 listAfterClean.push(item);
             }
         })
         $scope.list = listAfterClean;
+        setToDoListToLocalStorage();
     }
 
     $scope.getCompletedItemSum = function () {
         var sum = 0;
         angular.forEach($scope.list, function (item) {
-            if(item.done){
-                sum ++;
+            if (item.done) {
+                sum++;
             }
         })
         return sum;
     }
 
+    function setToDoListToLocalStorage () {
+        localStorageSvr.setItem(TODO_LIST, angular.toJson($scope.list));
+    }
+
+    function getTodoListFromLocalStorage() {
+        var list = angular.fromJson(localStorageSvr.getItem(TODO_LIST));
+        if(!list){
+            list = [];
+        }
+        return list;
+    }
+
 });
 
 function getToDoList() {
+
     return [
         {createTime: 1449119707026, text: "准备周三分享"},
         {createTime: 1449119707026, text: "Q4绩效考核"},
