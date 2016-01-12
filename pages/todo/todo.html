@@ -1,0 +1,45 @@
+<div class="todoapp">
+    <h3 style="float: right"><a ui-sref="done">done</a></h3>
+    <div class="title">
+        <h1>Todos</h1>
+    </div>
+    <div class="content">
+
+        <form class="todo-form" ng-submit="addTodo()">
+            <input placeholder="What to do next" type="text" ng-model="newTodo">
+
+            <div class="todo-input-tip">
+                <span ng-cloak ng-show="isShowInputTip()">按回车提交</span>&nbsp;
+            </div>
+        </form>
+
+        <div class="todos">
+            <ul class="todo-list">
+                <li class="todo" ng-repeat="item in list" ng-class="'done-'+item.done">
+                    <div class="display">
+                        <input class="check" type="checkbox" ng-model="item.done">
+
+                        <div class="todo-content">
+                            <span ng-bind="item.text"></span>
+                            <span class="todo-createTime" ng-bind="item.createTime | prettyDate"></span>
+                        </div>
+                        <span class="todo-destroy" ng-click="removeTodo(item)"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="todo-stats">
+              <span class="todo-count">
+                <span class="number"><span ng-bind="list.length"></span></span>
+                <span class="word">items</span> left.
+              </span>
+              <span class="todo-clear" ng-show="hasCompletedItems()" ng-click="cleanCompletedItems()">
+                  <a href="">
+                      Clear <span class="number-done" ng-bind="getCompletedItemSum()"></span>
+                      completed <span class="word-done">item</span>
+                  </a>
+              </span>
+        </div>
+    </div>
+</div>
