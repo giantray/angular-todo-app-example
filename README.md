@@ -16,7 +16,7 @@
 - url路由
 
 ##提纲
-![](https://github.com/giantray/angular-todo-app-example/tree/master/doc-img/tigang.png)
+![](https://raw.githubusercontent.com/giantray/angular-todo-app-example/master/doc-img/tigang.png)
 
 ##访问方式
 拉下代码，放到web容器，如果最新的代码（也就是加了url多页面路由后）请访问/index.html#/todo，之前的代码直接访问index.html
